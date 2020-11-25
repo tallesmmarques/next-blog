@@ -12,6 +12,9 @@ const ProdutsBox: React.FC<ProductsBoxProps> = ({ product }) => {
       <Image src={product.image} alt={product.title} width={200} height={200} />
       <h3>{product.title}</h3>
       <p>{product.description}</p>
+      <Link href={`/products/${product.id}`}>
+        <a>See more...</a>
+      </Link>
     </div>
   )
 }
