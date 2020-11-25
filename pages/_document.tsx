@@ -17,7 +17,7 @@ class MyDocument extends Document {
     return (
       <Html lang="pt">
         <Head>
-          <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+          <meta content="charset=UTF-8" />
         </Head>
         <body>
           <Main />
