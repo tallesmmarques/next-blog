@@ -1,20 +1,24 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import axios from 'axios'
 import { Url } from 'url'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetStaticProps } from 'next'
+import ProdutsBox from '../components/productBox'
 
-interface IProducts {
+export interface IProduct {
   category: string
   description: string
   id: number
-  image: Url
+  image: string
   price: number
   title: string
 }
 
-const Home: React.FC = ({
-  products
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+interface HomeProps {
+  products: IProduct[]
+}
+
+const Home: React.FC<HomeProps> = ({ products }) => {
   return (
     <div>
       <Head>
@@ -28,7 +32,7 @@ const Home: React.FC = ({
       <main>
         <ul>
           {products.map((product) => (
-            <li key={product.id}>{product.title}</li>
+            <ProdutsBox key={product.id} product={product} />
           ))}
         </ul>
       </main>
@@ -39,7 +43,7 @@ const Home: React.FC = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products: IProducts[] = await axios
+  const products: IProduct[] = await axios
     .get('https://fakestoreapi.com/products')
     .then((res) => {
       return res.data
