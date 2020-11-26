@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { IProduct } from '../pages/index'
+import style from './productBox.module.css'
 
 interface ProductsBoxProps {
   product: IProduct
@@ -8,22 +9,20 @@ interface ProductsBoxProps {
 
 const ProdutsBox: React.FC<ProductsBoxProps> = ({ product }) => {
   return (
-    <div>
-      <div style={{ height: '200px', width: '200px', position: 'relative' }}>
+    <div className={style.container}>
+      <Link href={`/products/${product.id}`}>
         <Image
           src={product.image}
           alt={product.title}
-          layout="fill"
+          height={200}
+          width={200}
           objectFit="scale-down"
+          className={style.image}
         />
-      </div>
-
-      <h3>{product.title}</h3>
-      <p>{product.description}</p>
-      <Link href={`/products/${product.id}`}>
-        <a>See more...</a>
       </Link>
-      <hr />
+
+      <h3 className={style.title}>{product.title}</h3>
+      <span className={style.price}>${product.price}</span>
     </div>
   )
 }

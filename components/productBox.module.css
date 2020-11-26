@@ -1,0 +1,39 @@
+.container {
+  width: 15rem;
+  height: 18rem;
+  background-color: white;
+
+  border-radius: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  box-shadow: 0 0 2rem -1rem rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: normal;
+
+  margin: 0;
+  padding: 1rem 0 0.5rem;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 400;
+}

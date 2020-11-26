@@ -1,0 +1,12 @@
+.logoTxt {
+  font-size: 2rem;
+  color: var(--white);
+
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.masterContainer {
+  padding: 1rem 5rem;
+  background-color: var(--primary);
+}
