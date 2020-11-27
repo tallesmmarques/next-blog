@@ -9,21 +9,25 @@ interface ProductsBoxProps {
 
 const ProdutsBox: React.FC<ProductsBoxProps> = ({ product }) => {
   return (
-    <div className={style.container}>
-      <Link href={`/products/${product.id}`}>
-        <Image
-          src={product.image}
-          alt={product.title}
-          height={200}
-          width={200}
-          objectFit="scale-down"
-          className={style.image}
-        />
-      </Link>
+    <Link href={`/products/${product.id}`}>
+      <div className={style.container}>
+        <div className={style.imageContainer}>
+          <Image
+            src={product.image}
+            alt={product.title}
+            width={250}
+            height={250}
+            objectFit="scale-down"
+            className={style.image}
+          />
+        </div>
 
-      <h3 className={style.title}>{product.title}</h3>
-      <span className={style.price}>${product.price}</span>
-    </div>
+        <div className={style.textContainer}>
+          <h3 className={style.title}>{product.title}</h3>
+          <span className={style.price}>${product.price}</span>
+        </div>
+      </div>
+    </Link>
   )
 }
 
