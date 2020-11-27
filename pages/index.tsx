@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import axios from 'axios'
-import { Url } from 'url'
 import { GetStaticProps } from 'next'
 import ProdutsBox from '../components/productBox'
+import Layout from '../components/layout'
+import style from '../styles/home.module.css'
 
 export interface IProduct {
   category: string
@@ -20,25 +20,21 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ products }) => {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Next Store</title>
       </Head>
 
-      <header>
-        <h1>Next Store</h1>
-      </header>
+      <div className={style.mainTitleContainer}>
+        <h2 className={style.mainTitleTxt}>Shop</h2>
+      </div>
 
-      <main>
-        <ul>
-          {products.map((product) => (
-            <ProdutsBox key={product.id} product={product} />
-          ))}
-        </ul>
-      </main>
-
-      <footer>Talles Marques</footer>
-    </div>
+      <div className={style.productsContainer}>
+        {products.map((product) => (
+          <ProdutsBox key={product.id} product={product} />
+        ))}
+      </div>
+    </Layout>
   )
 }
 

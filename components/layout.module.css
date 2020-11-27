@@ -1,0 +1,16 @@
+.logoTxt {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--primary);
+
+  margin: 0;
+  padding-bottom: 1rem;
+
+  cursor: pointer;
+}
+
+.masterContainer {
+  min-height: 100vh;
+  padding: 1rem 5rem;
+  background-color: var(--white);
+}
