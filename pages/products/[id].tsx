@@ -4,19 +4,49 @@ import axios, { AxiosResponse } from 'axios'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { IProduct } from '../index'
 
+import Layout from '../../components/layout'
+import style from '../../styles/product.module.css'
+import styleUtils from '../../styles/utils.module.css'
+
 interface ProdutcProps {
   product: IProduct
 }
 
 const Product: React.FC<ProdutcProps> = ({ product }) => {
   return (
-    <div>
-      <Image src={product.image} width={200} height={200} />
-      <p>{product.title}</p>
-      <Link href="/">
-        <a>Back to Home</a>
-      </Link>
-    </div>
+    <Layout>
+      <main className={style.page}>
+        <section className={style.container}>
+          <figure className={style.imageContainer}>
+            <Image
+              src={product.image}
+              width={400}
+              height={400}
+              objectFit="scale-down"
+            />
+          </figure>
+
+          <div className={style.rightContainer}>
+            <article>
+              <h1 className={style.title}>{product.title}</h1>
+              <p className={style.categoryTitle}>
+                Category:{' '}
+                <span className={style.category}>{product.category}</span>
+              </p>
+              <p className={style.description}>{product.description}</p>
+              <div className={style.horizontal}>
+                <p className={style.price}>$ {product.price}</p>
+                <button className={style.buy}>Add to Cart</button>
+              </div>
+            </article>
+
+            <Link href="/">
+              <a className={style.back}>↩ Back to Home</a>
+            </Link>
+          </div>
+        </section>
+      </main>
+    </Layout>
   )
 }
 
