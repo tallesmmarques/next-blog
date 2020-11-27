@@ -1,12 +1,15 @@
+import Link from 'next/link'
 import style from './layout.module.css'
 
 const Layout: React.FC = ({ children }) => {
   return (
     <div className={style.masterContainer}>
       <header>
-        <h1 className={style.logoTxt}>NextStore</h1>
+        <Link href="/">
+          <h1 className={style.logoTxt}>NextStore</h1>
+        </Link>
       </header>
-      <main className={style.main}>{children}</main>
+      <div>{children}</div>
     </div>
   )
 }
